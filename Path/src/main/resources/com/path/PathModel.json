@@ -1,0 +1,134 @@
+{
+    "models": [
+        {
+            "name": "PathModel",
+            "id": "cbca8c67-6d0c-40b4-8afb-032b069a4bc1",
+            "generator": "quick_random(edge_coverage(100))",
+            "actions": [
+                "number_of_nodes = 0;",
+                "number_of_edges = 0;"
+            ],
+            "vertices": [
+                {
+                    "id": "d9c15804-24de-47ca-9430-9cb93202d9ff",
+                    "name": "v_EmptyPath",
+                    "requirements": [],
+                    "properties": {
+                        "x": 83.91667175292969,
+                        "y": 378.4166717529297
+                    }
+                },
+                {
+                    "id": "fd4435f7-6a42-4a8b-a522-49c6b91a85e1",
+                    "name": "v_NonEmptyPath",
+                    "actions": [
+                        "number_of_nodes > 0;",
+                        "number_of_edges >= 1;"
+                    ],
+                    "requirements": [],
+                    "properties": {
+                        "x": 524.9166717529297,
+                        "y": 355.4166717529297
+                    }
+                }
+            ],
+            "edges": [
+                {
+                    "id": "9a6b8be2-3e0c-4e8d-bb38-21107b66a4d3",
+                    "name": "e_Add",
+                    "actions": [
+                        "number_of_nodes += 2;",
+                        "number_of_edges++;"
+                    ],
+                    "requirements": [],
+                    "properties": [],
+                    "sourceVertexId": "d9c15804-24de-47ca-9430-9cb93202d9ff",
+                    "targetVertexId": "fd4435f7-6a42-4a8b-a522-49c6b91a85e1"
+                },
+                {
+                    "id": "8bb9de85-cd4a-435f-a08d-1f0abf74b841",
+                    "name": "e_Clear",
+                    "sourceVertexId": "d9c15804-24de-47ca-9430-9cb93202d9ff",
+                    "targetVertexId": "d9c15804-24de-47ca-9430-9cb93202d9ff",
+                    "actions": [
+                        "number_of_nodes = 0;",
+                        "number_of_edges = 0;"
+                    ]
+                },
+                {
+                    "id": "508eee2a-7dd6-49a9-8f32-152e6dde45b1",
+                    "name": "e_Add",
+                    "sourceVertexId": "fd4435f7-6a42-4a8b-a522-49c6b91a85e1",
+                    "targetVertexId": "fd4435f7-6a42-4a8b-a522-49c6b91a85e1",
+                    "actions": [
+                        "number_of_nodes += 2;",
+                        "number_of_edges++;"
+                    ]
+                },
+                {
+                    "id": "4dfb983a-cf42-490d-9a76-8d60cd46b387",
+                    "name": "e_PopNode",
+                    "sourceVertexId": "fd4435f7-6a42-4a8b-a522-49c6b91a85e1",
+                    "targetVertexId": "fd4435f7-6a42-4a8b-a522-49c6b91a85e1",
+                    "guard": "number_of_nodes > 1",
+                    "actions": [
+                        "number_of_nodes--;;",
+                        "number_of_edges--;;"
+                    ]
+                },
+                {
+                    "id": "037564ef-3362-4844-a773-89b0dd159011",
+                    "name": "e_PopEdge",
+                    "sourceVertexId": "fd4435f7-6a42-4a8b-a522-49c6b91a85e1",
+                    "targetVertexId": "fd4435f7-6a42-4a8b-a522-49c6b91a85e1",
+                    "guard": "number_of_nodes > 1",
+                    "actions": [
+                        "number_of_nodes--;;",
+                        "number_of_edges--;;"
+                    ]
+                },
+                {
+                    "id": "66619432-35f2-4118-aaaa-3ee0a3bf0705",
+                    "name": "e_Clear",
+                    "sourceVertexId": "fd4435f7-6a42-4a8b-a522-49c6b91a85e1",
+                    "targetVertexId": "d9c15804-24de-47ca-9430-9cb93202d9ff",
+                    "actions": [
+                        "number_of_nodes = 0;",
+                        "number_of_edges = 0;"
+                    ]
+                },
+                {
+                    "id": "bff9766c-ddda-4219-b602-a3a51645ba06",
+                    "name": "e_PopNode",
+                    "sourceVertexId": "fd4435f7-6a42-4a8b-a522-49c6b91a85e1",
+                    "targetVertexId": "d9c15804-24de-47ca-9430-9cb93202d9ff",
+                    "actions": [
+                        "number_of_nodes--;;",
+                        "number_of_edges--;;"
+                    ],
+                    "guard": "number_of_nodes == 1"
+                },
+                {
+                    "id": "e504f622-07d9-493b-9289-60bfbf984fde",
+                    "name": "e_PopEdge",
+                    "sourceVertexId": "fd4435f7-6a42-4a8b-a522-49c6b91a85e1",
+                    "targetVertexId": "d9c15804-24de-47ca-9430-9cb93202d9ff",
+                    "guard": "number_of_nodes == 1",
+                    "actions": [
+                        "number_of_nodes--;;",
+                        "number_of_edges--;;"
+                    ]
+                },
+                {
+                    "id": "06960d0a-9dd1-4614-983c-814f2cefb778",
+                    "name": "e_RemoveLoops",
+                    "sourceVertexId": "fd4435f7-6a42-4a8b-a522-49c6b91a85e1",
+                    "targetVertexId": "fd4435f7-6a42-4a8b-a522-49c6b91a85e1"
+                }
+            ],
+            "startElementId": "d9c15804-24de-47ca-9430-9cb93202d9ff"
+        }
+    ],
+    "selectedModelIndex": 0,
+    "selectedElementId": "d9c15804-24de-47ca-9430-9cb93202d9ff"
+}
